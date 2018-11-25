@@ -140,7 +140,7 @@ class RegexTests: XCTestCase {
             👍👍 Find me. 👌👨‍👩‍👧👨\u{200D}👩\u{200D}👧👌
             """
         let regex = try! Regex(pattern: "^(👍+) *([^👌]+?) *([👌👨‍👩‍👧]+)$",
-                               options: [.anchorsMatchLines, .useUnicodeWordBoundaries],
+                               options: [.anchorsMatchLines],
                                groupNames: [])
 
         guard let firstMatch = regex.findFirst(in: testString) else {
@@ -168,7 +168,6 @@ class RegexTests: XCTestCase {
 
 
         let familyEmojiRegex = try! Regex(pattern: "👌([👨‍👩‍👧]+)",
-                                          options: [.default],
                                           groupNames: [])
         guard let familyFirstMatch = familyEmojiRegex.findFirst(in: testString) else {
             return XCTFail("Failed to find first match using family regex.")
@@ -195,6 +194,54 @@ class RegexTests: XCTestCase {
         XCTAssert(thaiMatchSequence.context.count == 1, "Failed to find match in Thai test string.")
         let thaiFirstMatch = thaiMatchSequence.makeIterator().next()!
         XCTAssert(thaiFirstMatch.matched == testInThai, "Failed to match Thai.")
+    }
+
+    func testMeasureNSRegularExpression() {
+        let regexPattern = "the *(car)?"
+        let theIlliad = Illiad.book
+        let theNSIlliad = theIlliad as NSString
+        let theIlliadRange = NSRange(location: 0, length: theIlliad.utf16.count)
+
+        measure {
+            let nsRegex = try! NSRegularExpression(pattern: regexPattern, options: [.caseInsensitive])
+            let matches = nsRegex.matches(in: theIlliad, range: theIlliadRange)
+            XCTAssert(matches.count == 20611,
+                      "Incorrect number of matches.")
+
+            for match in matches {
+                let groupRange = match.range(at: 0) as GroupRange
+                let stringRange = try! groupRange.asRange(ofString: theIlliad)
+                _ = String(theIlliad[stringRange])
+//                _ = theNSIlliad.substring(with: groupRange)
+            }
+        }
+    }
+
+    override class var defaultPerformanceMetrics: [XCTPerformanceMetric] {
+        return [.wallClockTime,
+                XCTPerformanceMetric(rawValue: "com.apple.XCTPerformanceMetric_TransientHeapAllocationsKilobytes"),
+                XCTPerformanceMetric(rawValue: "com.apple.XCTPerformanceMetric_PersistentVMAllocations"),
+                XCTPerformanceMetric(rawValue: "com.apple.XCTPerformanceMetric_TemporaryHeapAllocationsKilobytes")
+        ]
+    }
+
+    func testMeasureRegex() {
+        let regexPattern = "the *(car)?"
+        let theIlliad = Illiad.book
+
+        measure {
+            let regex = try! Regex(pattern: regexPattern, options: [.caseInsensitive], groupNames: [])
+            let matches = regex.findAll(in: theIlliad)
+            XCTAssert(matches.context.count == 20611,
+                      "Incorrect number of matches.")
+
+            for match in matches { //}.context {
+//                let groupRange = match.range(at: 0) as GroupRange
+//                let stringRange = try! groupRange.asRange(ofString: theIlliad)
+//                _ = String(theIlliad[stringRange])
+                _ = match.group(at: 0)
+            }
+        }
     }
     
     func testSplit() {

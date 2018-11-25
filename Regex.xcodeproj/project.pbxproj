@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1472149021AB3CC90072EF40 /* Illiad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472148F21AB3CC90072EF40 /* Illiad.swift */; };
+		1472149121AB3CC90072EF40 /* Illiad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472148F21AB3CC90072EF40 /* Illiad.swift */; };
+		1472149221AB3CC90072EF40 /* Illiad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472148F21AB3CC90072EF40 /* Illiad.swift */; };
+		1472149421AB44C20072EF40 /* Illiad.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1472149321AB44C20072EF40 /* Illiad.txt */; };
+		1472149521AB44C20072EF40 /* Illiad.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1472149321AB44C20072EF40 /* Illiad.txt */; };
+		1472149621AB44C20072EF40 /* Illiad.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1472149321AB44C20072EF40 /* Illiad.txt */; };
 		651655071C53AB2000B613AB /* Regex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651654FC1C53AB2000B613AB /* Regex.framework */; };
 		6516550C1C53AB2000B613AB /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6516550B1C53AB2000B613AB /* RegexTests.swift */; };
 		651655171C53AB3F00B613AB /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651655161C53AB3F00B613AB /* Regex.swift */; };
@@ -105,6 +111,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1472148F21AB3CC90072EF40 /* Illiad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Illiad.swift; sourceTree = "<group>"; };
+		1472149321AB44C20072EF40 /* Illiad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Illiad.txt; sourceTree = "<group>"; };
 		651654FC1C53AB2000B613AB /* Regex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		651655011C53AB2000B613AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651655061C53AB2000B613AB /* RegexTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RegexTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +189,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1472148E21AB3C7C0072EF40 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				1472149321AB44C20072EF40 /* Illiad.txt */,
+				1472148F21AB3CC90072EF40 /* Illiad.swift */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		651654F21C53AB1F00B613AB = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +240,7 @@
 		6516550A1C53AB2000B613AB /* RegexTests */ = {
 			isa = PBXGroup;
 			children = (
+				1472148E21AB3C7C0072EF40 /* Fixtures */,
 				6516550B1C53AB2000B613AB /* RegexTests.swift */,
 				6516550D1C53AB2000B613AB /* Info.plist */,
 			);
@@ -478,6 +496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1472149421AB44C20072EF40 /* Illiad.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +511,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1472149521AB44C20072EF40 /* Illiad.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +526,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1472149621AB44C20072EF40 /* Illiad.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +559,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1472149021AB3CC90072EF40 /* Illiad.swift in Sources */,
 				6516550C1C53AB2000B613AB /* RegexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1472149121AB3CC90072EF40 /* Illiad.swift in Sources */,
 				65C5299E1C5660D2002BF559 /* RegexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1472149221AB3CC90072EF40 /* Illiad.swift in Sources */,
 				65C529D41C5665CE002BF559 /* RegexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
