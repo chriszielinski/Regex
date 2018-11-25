@@ -18,6 +18,13 @@ import XCTest
 @testable import Regex
 
 class RegexTests: XCTestCase {
+
+    override class var defaultPerformanceMetrics: [XCTPerformanceMetric] {
+        return [.wallClockTime,
+                XCTPerformanceMetric(rawValue: "com.apple.XCTPerformanceMetric_TemporaryHeapAllocationsKilobytes")
+        ]
+    }
+
     static let pattern:String = "(.+?)([1,2,3]*)(.*)"
     let regex:RegexProtocol = try! Regex(pattern:RegexTests.pattern, groupNames:"letter", "digits", "rest")
     let source = "l321321alala"
@@ -199,7 +206,7 @@ class RegexTests: XCTestCase {
     func testMeasureNSRegularExpression() {
         let regexPattern = "the *(car)?"
         let theIlliad = Illiad.book
-        let theNSIlliad = theIlliad as NSString
+//        let theNSIlliad = theIlliad as NSString
         let theIlliadRange = NSRange(location: 0, length: theIlliad.utf16.count)
 
         measure {
@@ -215,14 +222,6 @@ class RegexTests: XCTestCase {
 //                _ = theNSIlliad.substring(with: groupRange)
             }
         }
-    }
-
-    override class var defaultPerformanceMetrics: [XCTPerformanceMetric] {
-        return [.wallClockTime,
-                XCTPerformanceMetric(rawValue: "com.apple.XCTPerformanceMetric_TransientHeapAllocationsKilobytes"),
-                XCTPerformanceMetric(rawValue: "com.apple.XCTPerformanceMetric_PersistentVMAllocations"),
-                XCTPerformanceMetric(rawValue: "com.apple.XCTPerformanceMetric_TemporaryHeapAllocationsKilobytes")
-        ]
     }
 
     func testMeasureRegex() {
